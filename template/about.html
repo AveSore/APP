@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>关于我</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">关于我</h1>
+		</header>
+		<div class="mui-content">
+			<div ng-app="myApp" ng-controller="myCtrl">
+				名: <input type="text" ng-model="firstName"><br>
+				姓: <input type="text" ng-model="lastName"><br>
+				<br>
+				姓名: {{firstName + " " + lastName}}
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+			    $scope.firstName= "John";
+			    $scope.lastName= "Doe";
+			});
+			</script>
+		<script type="text/javascript">
+			mui.init();
+			function hashChanged(hashObj){
+				var newhash = hashObj.newURL.split('#')[1];
+				var oldhash = hashObj.oldURL.split('#')[1];
+				document.getElementById(oldhash).style.display = "none";
+				document.getElementById(newhash).style.display = "block";
+			}
+			window.onhashchange = hashChanged;
+		</script>
+	</body>
+
+</html>
